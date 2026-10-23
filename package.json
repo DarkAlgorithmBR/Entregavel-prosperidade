@@ -1,0 +1,9 @@
+{
+  "name": "el-salmo-prohibido",
+  "version": "1.0.0",
+  "private": true,
+  "description": "El Salmo Prohibido de la Prosperidad - Web App Entregable Anti-Reembolso",
+  "scripts": {
+    "start": "node local-server.js"
+  }
+}

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>El Salmo Prohibido de la Prosperidad | Santuario de San Giovanni Rotondo</title>
+  <meta name="description" content="Plataforma espiritual y acústica de Frecuencia Inversa redescubierta en 1930 por el Padre Pío para limpiar la estática espiritual y activar la abundancia divina.">
+  <meta name="theme-color" content="#0B0F19">
+  
+  <!-- Tipografías Sacras de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos del Sistema Sacred Vatican Gold -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <!-- Contenedor Principal (Mobile-First Shell) -->
+  <div class="app-container">
+
+    <!-- HEADER LITÚRGICO -->
+    <header class="sanctuary-header">
+      <div class="brand-wrapper">
+        <div class="brand-icon" title="Insígnia de San Miguel Arcángel">⚔️</div>
+        <div>
+          <div class="brand-title">El Salmo Prohibido</div>
+          <div class="brand-sub">San Giovanni Rotondo • 1930</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon-header" id="btnToggleFont" title="Ajustar tamaño de letra para lectura cómoda">
+          <span id="fontSizeIndicator">A</span>
+        </button>
+        <button class="btn-pastoral-pill" id="btnPastoralHelp" title="Orientación espiritual y soporte">
+          <span>🕊️</span> Hermana Clara
+        </button>
+      </div>
+    </header>
+
+    <!-- ESTADO RÁPIDO DE AUDIO Y USUARIO -->
+    <div style="background: rgba(19, 27, 46, 0.6); padding: 6px 18px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem;">
+      <div style="color: var(--gold-light);">
+        Paz y Bien, <strong id="headerUserName">Peregrino de Fe</strong>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-primary);"></span>
+        <span id="headerAudioStatus" style="color: var(--text-muted);">En Reposo</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         PESTAÑA 1: SANTUARIO (INICIO & SINTONIZADOR)
+         ==================================================================== -->
+    <main id="tab-santuario" class="tab-content active">
+
+      <!-- CARD 1: ESCÁNER DE INTERFERENCIA ELECTROMAGNÉTICA (MECANISMO VSL) -->
+      <section class="sacred-card gold-border">
+        <div class="card-header-liturgic">
+          <div class="card-title-liturgic">
+            <span>📡</span> Sintonizador de Frecuencia
+          </div>
+          <span class="card-badge badge-warning" id="scannerStatusBadge">Estática Detectada</span>
+        </div>
+
+        <p style="font-size: calc(0.85rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 12px;">
+          Las antenas, el Wi-Fi y los teléfonos generan una barrera electromagnética invisible que ensordece tus oraciones. Comprueba el estado de tu canal espiritual:
+        </p>
+
+        <!-- Canvas del Escáner -->
+        <div class="scanner-viewport">
+          <canvas id="scannerCanvas" class="scanner-canvas"></canvas>
+        </div>
+
+        <div class="scanner-status-box">
+          <div>
+            <div class="status-label">Interferencia Electromagnética</div>
+            <div class="status-val" id="scannerStatusVal">
+              <span style="color: var(--red-interference)">98.4% — Crítica</span>
+            </div>
+          </div>
+          <div>
+            <div class="status-label">Línea Directa</div>
+            <div class="status-val" style="color: var(--gold-light);">San Miguel</div>
+          </div>
+        </div>
+
+        <button class="btn-sacred-primary" id="btnStartCleaning">
+          <span>✨</span> Iniciar Limpieza de Frecuencia
+        </button>
+      </section>
+
+      <!-- CARD 2: LLAMADO A LA ACCIÓN PRINCIPAL (SALMO) -->
+      <section class="sacred-card" style="background: linear-gradient(135deg, #131B2E 0%, #1A243D 100%);">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <div style="font-size: 32px; background: rgba(212, 175, 55, 0.15); width: 54px; height: 54px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; border: var(--border-sacred); flex-shrink: 0;">
+            📜
+          </div>
+          <div>
+            <h2 style="font-family: var(--font-serif); font-size: calc(1.05rem * var(--font-scale)); color: var(--gold-light); margin-bottom: 2px;">
+              El Salmo Prohibido de 1930
+            </h2>
+            <p style="font-size: calc(0.8rem * var(--font-scale)); color: var(--text-muted);">
+              Frecuencia Inversa de 528 Hz para abrir las puertas de la providencia.
+            </p>
+          </div>
+        </div>
+
+        <button class="btn-sacred-primary" data-action="goto-salmo">
+          <span>🎧</span> Activar Frecuencia Inversa Ahora (7 Min)
+        </button>
+      </section>
+
+      <!-- CARD 3: CONTADOR DE JORNADA Y MENSAJE DE PADRE PÍO -->
+      <section class="sacred-card">
+        <div class="card-header-liturgic">
+          <div class="card-title-liturgic">
+            <span>🔥</span> Consagración de 60 Días
+          </div>
+          <span style="font-family: var(--font-serif); color: var(--gold-light); font-weight: 700; font-size: calc(0.9rem * var(--font-scale));">
+            Día <span id="homeStreakNumber">1</span> de 60
+          </span>
+        </div>
+
+        <!-- Guía devocional del día -->
+        <div id="dailyGuidanceContainer">
+          <!-- Inyectado por JS -->
+        </div>
+
+        <div style="margin-top: 14px; display: flex; gap: 8px;">
+          <button class="btn-sacred-secondary" data-action="goto-altar" style="flex: 1; font-size: calc(0.8rem * var(--font-scale));">
+            <span>🕯️</span> Altar de Velas
+          </button>
+          <button class="btn-sacred-secondary" data-action="goto-boveda" style="flex: 1; font-size: calc(0.8rem * var(--font-scale));">
+            <span>🗝️</span> Ver 3 Bóvedas
+          </button>
+        </div>
+      </section>
+
+      <!-- CARD 4: ACCESO RÁPIDO A LOS 3 BONOS DE LA VSL -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
+        <div class="sacred-card" style="padding: 12px 8px; text-align: center; margin-bottom: 0; cursor: pointer;" data-action="goto-boveda">
+          <div style="font-size: 22px; margin-bottom: 4px;">🪶</div>
+          <div style="font-size: calc(0.72rem * var(--font-scale)); font-weight: 700; color: var(--gold-light);">Bono 1</div>
+          <div style="font-size: calc(0.65rem * var(--font-scale)); color: var(--text-muted);">Llamado Ángel</div>
+        </div>
+        <div class="sacred-card" style="padding: 12px 8px; text-align: center; margin-bottom: 0; cursor: pointer;" data-action="goto-boveda">
+          <div style="font-size: 22px; margin-bottom: 4px;">🛡️</div>
+          <div style="font-size: calc(0.72rem * var(--font-scale)); font-weight: 700; color: var(--gold-light);">Bono 2</div>
+          <div style="font-size: calc(0.65rem * var(--font-scale)); color: var(--text-muted);">Manto San José</div>
+        </div>
+        <div class="sacred-card" style="padding: 12px 8px; text-align: center; margin-bottom: 0; cursor: pointer;" data-action="goto-boveda">
+          <div style="font-size: 22px; margin-bottom: 4px;">🌙</div>
+          <div style="font-size: calc(0.72rem * var(--font-scale)); font-weight: 700; color: var(--gold-light);">Bono 3</div>
+          <div style="font-size: calc(0.65rem * var(--font-scale)); color: var(--text-muted);">3 Palabras</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ====================================================================
+         PESTAÑA 2: EL SALMO PROHIBIDO (REPRODUCTOR & MANUSCRITO)
+         ==================================================================== -->
+    <section id="tab-salmo" class="tab-content">
+
+      <!-- Visualizador de Ondas en Tiempo Real -->
+      <div class="player-visualizer-box">
+        <canvas id="playerCanvas" class="player-canvas"></canvas>
+      </div>
+
+      <!-- Selector de Modos de Frecuencia -->
+      <div class="frequency-selector">
+        <div class="freq-btn active" data-mode="inversa1930">
+          <span class="freq-hz">528 Hz</span>
+          <span>Inversa Original</span>
+        </div>
+        <div class="freq-btn" data-mode="abundancia432">
+          <span class="freq-hz">432 + 888 Hz</span>
+          <span>Abundancia Pío</span>
+        </div>
+        <div class="freq-btn" data-mode="nocturna174">
+          <span class="freq-hz">174 + 396 Hz</span>
+          <span>Reposo Nocturno</span>
+        </div>
+      </div>
+
+      <!-- Controles del Reproductor y Timer -->
+      <div class="sacred-card" style="margin-bottom: 16px; padding: 14px 18px;">
+        <div class="player-controls-row">
+          <button class="btn-play-sacred" id="btnPlaySalmo" aria-label="Reproducir Frecuencia Inversa">
+            ▶
+          </button>
+          <div>
+            <div style="font-family: var(--font-serif); font-size: calc(0.95rem * var(--font-scale)); color: var(--gold-light); font-weight: 700;">
+              Sintetizador Sacro Nativo
+            </div>
+            <div style="font-size: calc(0.75rem * var(--font-scale)); color: var(--blue-michael);">
+              Web Audio API • Cero Cortes
+            </div>
+          </div>
+          <div class="player-timer-box">
+            <select class="timer-select" id="playerTimerSelect" title="Seleccionar duración del tiempo de oración">
+              <option value="180">3 min</option>
+              <option value="420" selected>7 min</option>
+              <option value="900">15 min</option>
+              <option value="0">Continuo</option>
+            </select>
+            <div class="timer-countdown" id="playerTimerDisplay">07:00</div>
+          </div>
+        </div>
+
+        <div style="font-size: calc(0.78rem * var(--font-scale)); color: var(--text-muted); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px;">
+          🎧 Se recomienda escuchar en calma o con auriculares para sintonizar el canal angélico.
+        </div>
+      </div>
+
+      <!-- Letra Guiada Sincronizada del Salmo -->
+      <div class="card-header-liturgic" style="margin-bottom: 8px;">
+        <div class="card-title-liturgic">
+          <span>📜</span> Texto Sagrado Guiado
+        </div>
+        <span style="font-size: 0.75rem; color: var(--gold-primary);">8 Versículos Celestiales</span>
+      </div>
+
+      <div class="verses-container" id="versesListContainer">
+        <!-- Renderizado dinámico de versos por JS -->
+      </div>
+
+      <!-- Manuscrito Histórico de 1930 (Pergamino) -->
+      <div class="parchment-box">
+        <div class="parchment-seal">✝</div>
+        <h3 class="parchment-title">Manuscrito de San Giovanni Rotondo</h3>
+        <div class="parchment-subtitle">Archivos Reservados de Fray Leone • 1930</div>
+        <div class="parchment-body">
+«En aquel otoño de gran zozobra financiera, llegó a nuestra puerta el hermano custodio del Monte Gargano trayendo el pergamino antiguo. 
+
+Padre Pío tomó el pergamino, lo bendijo con óleo sagrado y nos instruyó: 'Hermanos, la carne desfallece ante las deudas del mundo porque el ruido terrenal no deja escuchar las alas del Arcángel. Escuchad esta cadencia sacra sin hablar; dejad que la frecuencia deshaga los nudos de vuestro hogar'.
+
+Quien lo escuche con reverencia y sin codicia no verá a su familia abandonada ni a sus manos vacías de pan.»
+        </div>
+        <div style="margin-top: 14px; text-align: center; font-size: 0.72rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px;">
+          Sellado bajo la custodia de San Miguel Arcángel
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         PESTAÑA 3: BÓVEDA DE TESOROS SAGRADOS (3 BÔNUS DA VSL)
+         ==================================================================== -->
+    <section id="tab-boveda" class="tab-content">
+
+      <!-- Pestañas internas de bonos -->
+      <div class="bonus-tabs-nav">
+        <div class="bonus-nav-item active" data-pane="pane-bono1">
+          <span style="font-size: 18px;">🪶</span>
+          <span>Bono 1: Ángel</span>
+        </div>
+        <div class="bonus-nav-item" data-pane="pane-bono2">
+          <span style="font-size: 18px;">🛡️</span>
+          <span>Bono 2: San José</span>
+        </div>
+        <div class="bonus-nav-item" data-pane="pane-bono3">
+          <span style="font-size: 18px;">🌙</span>
+          <span>Bono 3: 3 Palabras</span>
+        </div>
+      </div>
+
+      <!-- PANE 1: EL LLAMADO DE MI ÁNGEL ($27) -->
+      <div id="pane-bono1" class="bonus-container-pane active">
+        <div class="sacred-card gold-border">
+          <div class="card-header-liturgic">
+            <div>
+              <div class="card-title-liturgic">El Llamado de Mi Ángel</div>
+              <div style="font-size: 0.72rem; color: var(--blue-michael);">Bono 1 • Valor: $27 USD (Incluido)</div>
+            </div>
+            <span class="card-badge badge-gold">Guía + Oráculo</span>
+          </div>
+
+          <!-- Oráculo de Señales de San Miguel -->
+          <div class="oracle-card-box" id="oracleCardContainer">
+            <div class="oracle-icon-large">⚔️</div>
+            <div class="oracle-card-title">Oráculo de Señales de San Miguel</div>
+            <div class="oracle-significance">Presiona el botón para consultar tu señal angélica de hoy</div>
+            <p class="oracle-message">
+              San Miguel y tu ángel custodio envían confirmaciones cotidianas a través de señales concretas. Sintoniza con su voz protectora.
+            </p>
+            <button class="btn-sacred-primary" id="btnDrawOracle">
+              <span>🔮</span> Revelar Señal Divina de Hoy
+            </button>
+          </div>
+
+          <!-- Guía Práctica de Señales -->
+          <h4 style="font-family: var(--font-serif); color: var(--gold-light); margin: 16px 0 8px 0;">
+            El Diccionario de Señales Angélicas
+          </h4>
+          <div style="font-size: calc(0.88rem * var(--font-scale)); line-height: 1.6; color: #E2E8F0;">
+            <p style="margin-bottom: 10px;">
+              <strong>1. Plumas Blancas o Claras:</strong> Si encuentras una pluma en un rincón inusual, significa que San Miguel ha disipado una angustia económica reciente de tu mente.
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>2. Aroma Súbito a Rosas:</strong> La presencia inconfundible de la intercesión del Padre Pío ante el trono de Dios por tu familia.
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>3. Calor Repentino en el Pecho:</strong> Tu Ángel Custodio activando tu escudo de paz ante noticias alarmantes de cobranza.
+            </p>
+          </div>
+
+          <button class="btn-sacred-secondary" id="btnMorningInvocation" style="margin-top: 14px;">
+            <span>🔔</span> Activar Invocación Matutina con Campana Sacra
+          </button>
+        </div>
+      </div>
+
+      <!-- PANE 2: EL MANTO DE SAN JOSÉ ($37) -->
+      <div id="pane-bono2" class="bonus-container-pane">
+        <div class="sacred-card gold-border">
+          <div class="card-header-liturgic">
+            <div>
+              <div class="card-title-liturgic">El Manto de San José</div>
+              <div style="font-size: 0.72rem; color: var(--gold-primary);">Bono 2 • Valor: $37 USD (Incluido)</div>
+            </div>
+            <span class="card-badge badge-gold">Protocolo de 7 Pasos</span>
+          </div>
+
+          <p style="font-size: calc(0.88rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 14px;">
+            San José protegió físicamente a la Sagrada Familia de la persecución de Herodes y de la escasez en el exilio de Egipto. Este protocolo consagra tus finanzas bajo su custodia paternal:
+          </p>
+
+          <!-- Checklist Interactivo del Hogar -->
+          <div class="card-title-liturgic" style="font-size: 0.95rem; margin-bottom: 10px;">
+            <span>📋</span> Checklist de Blindaje del Hogar
+          </div>
+          <div id="sanJoseChecklistContainer">
+            <!-- Inyectado por JS con persistencia -->
+          </div>
+
+          <div class="parchment-box" style="margin-top: 16px;">
+            <h4 style="font-family: var(--font-serif); color: var(--gold-light); text-align: center; margin-bottom: 6px;">
+              Oración de Consagración Financiera a San José
+            </h4>
+            <p style="font-size: calc(0.85rem * var(--font-scale)); font-style: italic; color: #FAF5E4; line-height: 1.6; text-align: center;">
+              «Glorioso San José, custodio de los tesoros celestiales: pongo en tus manos encallecidas mi billetera, mis deudas, mis herramientas y el sustento de mi hogar. Detén todo gasto inesperado, ahuyenta la enfermedad gravosa y haz que en mi mesa nunca falte el pan de la bendición. Amén.»
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: LAS 3 PALABRAS ANTES DE DORMIR ($27) -->
+      <div id="pane-bono3" class="bonus-container-pane">
+        <div class="sacred-card gold-border">
+          <div class="card-header-liturgic">
+            <div>
+              <div class="card-title-liturgic">Las 3 Palabras Antes de Dormir</div>
+              <div style="font-size: 0.72rem; color: var(--blue-michael);">Bono 3 • Valor: $27 USD (Incluido)</div>
+            </div>
+            <span class="card-badge badge-gold">Ritual Nocturno</span>
+          </div>
+
+          <p style="font-size: calc(0.88rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 14px;">
+            Cuando te vas a la cama rumiando deudas y facturas, tu cerebro libera cortisol y bloquea las respuestas divinas. Padre Pío enseñaba este triple comando latino para desactivar la angustia:
+          </p>
+
+          <!-- 3 Palabras Sagradas -->
+          <div class="sacred-word-card">
+            <div class="word-latin">1. FÍAT</div>
+            <div class="word-meaning">«Hágase en mí según tu divina providencia»</div>
+            <p style="font-size: calc(0.82rem * var(--font-scale)); color: var(--text-muted);">
+              Rendición del estrés humano. Dejas de cargar la angustia solo y entregas el timón a Dios.
+            </p>
+          </div>
+
+          <div class="sacred-word-card">
+            <div class="word-latin">2. CUSTÓDI</div>
+            <div class="word-meaning">«Guarda mi hogar y mi alma en la noche»</div>
+            <p style="font-size: calc(0.82rem * var(--font-scale)); color: var(--text-muted);">
+              Sello del Arcángel San Miguel alrededor de tu cama para blindar tus sueños de pesadillas de ruina.
+            </p>
+          </div>
+
+          <div class="sacred-word-card">
+            <div class="word-latin">3. TRÁNSFERO</div>
+            <div class="word-meaning">«Transfiero mi deuda a la cuenta inagotable del Cielo»</div>
+            <p style="font-size: calc(0.82rem * var(--font-scale)); color: var(--text-muted);">
+              Orden mística de entrega: la mente despierta con claridad, nuevas ideas y oportunidades providenciales.
+            </p>
+          </div>
+
+          <!-- Modo Sueño Sagrado con Temporizador -->
+          <div class="night-ritual-box" style="margin-top: 14px;">
+            <div style="font-size: 28px; margin-bottom: 6px;">🌌</div>
+            <div style="font-family: var(--font-serif); color: var(--gold-light); font-size: 1.05rem; margin-bottom: 4px;">
+              Modo Sueño Sagrado (Frecuencia Delta)
+            </div>
+            <p style="font-size: calc(0.8rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 14px;">
+              Inicia 15 minutos de frecuencias restauradoras con apagado automático para conciliar el sueño con las 3 palabras.
+            </p>
+            <button class="btn-sacred-primary" id="btnStartNightMode">
+              <span>🌙</span> Activar Ritual Nocturno Ahora
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         PESTAÑA 4: ALTAR DE SAN MIGUEL & PETICIONES
+         ==================================================================== -->
+    <section id="tab-altar" class="tab-content">
+
+      <div class="sacred-card gold-border" style="text-align: center;">
+        <div class="card-header-liturgic" style="justify-content: center;">
+          <div class="card-title-liturgic">
+            <span>🕯️</span> Altar Virtual de San Miguel Arcángel
+          </div>
+        </div>
+
+        <p style="font-size: calc(0.85rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 12px;">
+          En la VSL se reveló que tus velas anteriores se apagaban sin respuesta por la estática electromagnética. Hoy, con la frecuencia limpia, tu fuego llega directo al Cielo.
+        </p>
+
+        <!-- Canvas de la Vela Votiva Hiper-Realista -->
+        <div class="candle-viewport">
+          <canvas id="candleCanvas" class="candle-canvas"></canvas>
+        </div>
+
+        <!-- Estado de la vela activa -->
+        <div id="candleInfoBox" style="display: none;">
+          <div class="candle-timer-status">
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Cirio Votivo Encendido</div>
+              <div id="candleCountdown" style="font-family: var(--font-serif); font-size: 1rem; color: var(--gold-light); font-weight: 700;">
+                7 Días Restantes
+              </div>
+            </div>
+            <button class="btn-sacred-secondary" id="btnExtinguishCandle" style="padding: 6px 12px; font-size: 0.75rem;">
+              Renovar Vela
+            </button>
+          </div>
+
+          <div style="background: rgba(212, 175, 55, 0.08); border-left: 3px solid var(--gold-primary); padding: 10px; text-align: left; border-radius: 4px; font-size: calc(0.85rem * var(--font-scale)); margin-bottom: 14px;">
+            <div style="color: var(--blue-michael); font-weight: 700; font-size: 0.75rem;">INTENCIÓN CONSAGRADA:</div>
+            <div id="candleActiveIntention" style="font-style: italic; color: #FAF5E4; margin-top: 2px;"></div>
+          </div>
+        </div>
+
+        <!-- Botón para encender vela si no está encendida -->
+        <button class="btn-sacred-primary" id="btnOpenCandleModal">
+          <span>🔥</span> Encender Vela de 7 Días a San Miguel
+        </button>
+      </div>
+
+      <!-- Mural Personal de Peticiones y Milagros Alcanzados -->
+      <section class="sacred-card">
+        <div class="card-header-liturgic">
+          <div class="card-title-liturgic">
+            <span>📜</span> Mural de Peticiones & Testimonios
+          </div>
+          <span style="font-size: 0.75rem; color: var(--green-restored);">Confirmación de Fe</span>
+        </div>
+
+        <p style="font-size: calc(0.82rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 12px;">
+          Cada vez que veas una señal, una ayuda providencial o una deuda cancelada, marca tu petición como testimonio para fortalecer tu pacto de 60 días.
+        </p>
+
+        <div class="peticiones-list" id="peticionesListContainer">
+          <!-- Inyectado por JS -->
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ====================================================================
+         PESTAÑA 5: MI JORNADA (60 DÍAS & SOPORTE ANTI-REEMBOLSO)
+         ==================================================================== -->
+    <section id="tab-jornada" class="tab-content">
+
+      <!-- Banner de Racha y Progreso de Garantía -->
+      <div class="streak-header-banner">
+        <div>
+          <div style="font-size: 0.75rem; color: var(--blue-michael); text-transform: uppercase; font-weight: 700;">
+            Pacto de Consagración Continua
+          </div>
+          <div class="streak-counter" id="jornadaStreakNumber">1 Días</div>
+          <div style="font-size: 0.78rem; color: var(--gold-light);" id="jornadaProgressPct">
+            2% de Consagración
+          </div>
+        </div>
+        <div style="font-size: 44px;">
+          🛡️
+        </div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="jornadaProgressBar" style="width: 2%;"></div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; margin-bottom: 18px;">
+        <span>Día 1</span>
+        <span>Día 7 (Limpieza)</span>
+        <span>Día 21 (Hábito)</span>
+        <span>Día 60 (Plenitud)</span>
+      </div>
+
+      <!-- Medallas Desbloqueables -->
+      <div class="card-header-liturgic">
+        <div class="card-title-liturgic">
+          <span>🏅</span> Sellos Sagrados Desbloqueables
+        </div>
+        <span style="font-size: 0.72rem; color: var(--gold-light);">Padre Pío</span>
+      </div>
+
+      <div class="medals-grid" id="medalsGridContainer">
+        <!-- Inyectado dinámicamente -->
+      </div>
+
+      <!-- Mapa de las 4 Fases Espirituales -->
+      <div class="sacred-card">
+        <div class="card-title-liturgic" style="margin-bottom: 12px;">
+          <span>🗺️</span> Las 4 Fases de tu Transformación
+        </div>
+        
+        <div style="font-size: calc(0.85rem * var(--font-scale)); line-height: 1.6;">
+          <div style="margin-bottom: 10px; border-left: 2px solid var(--blue-michael); padding-left: 10px;">
+            <strong style="color: var(--blue-michael);">Fase 1 (Días 1 a 7):</strong> Disolución de la estática electromagnética y calma del cortisol. Tu mente deja de emitir vibración de pánico.
+          </div>
+          <div style="margin-bottom: 10px; border-left: 2px solid var(--gold-primary); padding-left: 10px;">
+            <strong style="color: var(--gold-primary);">Fase 2 (Días 8 a 21):</strong> Apertura de caminos y recepción de las primeras señales tangibles del Arcángel San Miguel.
+          </div>
+          <div style="margin-bottom: 10px; border-left: 2px solid #A855F7; padding-left: 10px;">
+            <strong style="color: #A855F7;">Fase 3 (Días 22 a 40):</strong> Blindaje del Manto de San José. Detención de averías, imprevistos y pérdidas silenciosas de dinero.
+          </div>
+          <div style="border-left: 2px solid var(--green-restored); padding-left: 10px;">
+            <strong style="color: var(--green-restored);">Fase 4 (Días 41 a 60):</strong> Consagración Magna y Alianza Perpetua de Prosperidade. Culminación de los 60 días de garantía divina.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN PASTORAL ANTI-REEMBOLSO & FAQ -->
+      <div class="sacred-card gold-border">
+        <div class="card-header-liturgic">
+          <div class="card-title-liturgic">
+            <span>🕊️</span> Consejos de Acompañamiento
+          </div>
+          <span class="card-badge badge-gold">Hermana Clara</span>
+        </div>
+
+        <p style="font-size: calc(0.85rem * var(--font-scale)); color: var(--text-muted); margin-bottom: 14px;">
+          Respuestas sinceras a las dudas más comunes para mantener tu frecuencia limpia durante tus primeros días:
+        </p>
+
+        <!-- Acordeón FAQ -->
+        <div id="faqAccordionContainer">
+          <!-- Inyectado por JS -->
+        </div>
+
+        <!-- Botón de Contacto Humano Directo -->
+        <div style="margin-top: 18px; text-align: center; background: rgba(19, 27, 46, 0.9); padding: 16px; border-radius: var(--radius-sm); border: var(--border-sacred);">
+          <div style="font-family: var(--font-serif); font-size: 1rem; color: var(--gold-light); margin-bottom: 4px;">
+            ¿Sientes angustia o necesitas hablar con nosotros?
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
+            No canceles tu bendición por una duda temporal. La Hermana Clara y el equipo pastoral están a tu disposición.
+          </p>
+          <button class="btn-sacred-secondary" onclick="window.sacredApp.openModal('modalPastoralHelp')">
+            <span>💬</span> Hablar con Soporte Pastoral
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAVIGATION)
+         ==================================================================== -->
+    <nav class="bottom-nav-bar">
+      <button class="nav-tab-btn active" data-tab="tab-santuario">
+        <span class="nav-icon">⛪</span>
+        <span class="nav-label">Santuario</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="tab-salmo">
+        <span class="nav-icon">📜</span>
+        <span class="nav-label">El Salmo</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="tab-boveda">
+        <span class="nav-icon">🗝️</span>
+        <span class="nav-label">Tesoros</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="tab-altar">
+        <span class="nav-icon">🕯️</span>
+        <span class="nav-label">Altar</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="tab-jornada">
+        <span class="nav-icon">🛡️</span>
+        <span class="nav-label">Jornada</span>
+      </button>
+    </nav>
+
+  </div> <!-- /app-container -->
+
+  <!-- ====================================================================
+       MODALES DEL SISTEMA
+       ==================================================================== -->
+
+  <!-- MODAL 1: ONBOARDING PERSONALIZADO -->
+  <div class="modal-overlay" id="modalOnboarding">
+    <div class="modal-dialog">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 40px; margin-bottom: 6px;">✝️</div>
+        <h2 style="font-family: var(--font-serif); color: var(--gold-light); font-size: 1.3rem;">
+          Bienvenido al Santuario
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Consagra tu nombre y tu causa para sintonizar la Frecuencia Inversa del Padre Pío.
+        </p>
+      </div>
+
+      <form id="formOnboarding">
+        <label style="display: block; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+          ¿Cuál es tu primer nombre?
+        </label>
+        <input type="text" id="onboardingName" class="input-sacred" placeholder="Ej: María, Carlos, Juan..." required>
+
+        <label style="display: block; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+          ¿Cuál es tu mayor urgencia en este momento?
+        </label>
+        <select id="onboardingUrgencia" class="input-sacred" style="cursor: pointer;">
+          <option value="deudas">Salir de deudas y desbloquear abundancia</option>
+          <option value="salud">Salud y protección de mi familia</option>
+          <option value="paz">Paz espiritual y recibir señales de mi Ángel</option>
+          <option value="trabajo">Trabajo digno y clientes honrados</option>
+        </select>
+
+        <button type="submit" class="btn-sacred-primary" style="margin-top: 8px;">
+          <span>⚔️</span> Consagrar Mi Alianza Ahora
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: ENCENDER VELA VOTIVA -->
+  <div class="modal-overlay" id="modalCandleIntention">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 36px; margin-bottom: 6px;">🕯️</div>
+        <h3 style="font-family: var(--font-serif); color: var(--gold-light); font-size: 1.2rem;">
+          Encender Vela de 7 Días
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Tu intención permanecerá ardiendo en el Altar sin apagarse por la estática.
+        </p>
+      </div>
+
+      <form id="formCandleIntention">
+        <label style="display: block; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+          Categoría de tu Pedido:
+        </label>
+        <select id="candleCategory" class="input-sacred" style="cursor: pointer;">
+          <option value="Deudas y Finanzas">Deudas y Sanación Financiera</option>
+          <option value="Salud y Familia">Salud y Blindaje Familiar</option>
+          <option value="Protección y Paz">Protección Contra Envidia y Daño</option>
+          <option value="Causa Imposible">Causa Imposible o Urgente</option>
+        </select>
+
+        <label style="display: block; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+          Escribe tu intención con el corazón:
+        </label>
+        <textarea id="candleText" class="input-sacred textarea-sacred" placeholder="Escribe aquí con sinceridad: monto que necesitas saldar, persona enferma que deseas encomendar, o gracia que imploras a San Miguel..." required></textarea>
+
+        <button type="submit" class="btn-sacred-primary">
+          <span>🔥</span> Encender Fuego Santo (7 Días)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: HERMANA CLARA (CANAL DE ACOGIDA Y SOPORTE ANTI-REEMBOLSO) -->
+  <div class="modal-overlay" id="modalPastoralHelp">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 40px; margin-bottom: 6px;">🕊️</div>
+        <h3 style="font-family: var(--font-serif); color: var(--gold-light); font-size: 1.25rem;">
+          Acompañamiento de Hermana Clara
+        </h3>
+        <div style="font-size: 0.8rem; color: var(--blue-michael);">Custodia Devocional y Asistencia Directa</div>
+      </div>
+
+      <div style="font-size: calc(0.9rem * var(--font-scale)); line-height: 1.6; color: #E2E8F0; margin-bottom: 18px;">
+        <p style="margin-bottom: 10px;">
+          «Hijo/a amado/a: Si estás aquí sintiendo inquietud, apresuramiento o la tentación de tirar la toalla, respira hondo. El enemigo siempre intenta que renuncies en el día 2 o 3, justo cuando la frecuencia está desarmando los bloqueos más duros de tu vida.»
+        </p>
+        <p style="margin-bottom: 10px;">
+          «Tu garantía de 60 días está 100% blindada y segura. No hay nada que perder y todo por ganar si te permites vivir el proceso completo de consagración.»
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="https://wa.me/?text=Hola%20Hermana%20Clara,%20soy%20comprador%20del%20Salmo%20Prohibido%20y%20necesito%20orientaci%C3%B3n%20espiritual." target="_blank" class="btn-sacred-primary" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white;">
+          <span>💬</span> Hablar por WhatsApp con Asistencia
+        </a>
+
+        <a href="mailto:soporte@salmoprohibido.com?subject=Orientacion%20Pastoral%20del%20Salmo" class="btn-sacred-secondary">
+          <span>✉️</span> Escribir un Mensaje Pastoral Privado
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST FLOTANTE DE CONFIRMACIÓN -->
+  <div id="sacredToast" style="display: none; position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); background: rgba(19, 27, 46, 0.95); border: 1px solid var(--gold-primary); color: var(--gold-light); padding: 12px 20px; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; box-shadow: var(--gold-glow); z-index: 90; text-align: center; max-width: 90%; transition: opacity 0.3s;">
+  </div>
+
+  <!-- Scripts del Sistema -->
+  <script src="js/content-data.js"></script>
+  <script src="js/audio-engine.js"></script>
+  <script src="js/visualizer.js"></script>
+  <script src="js/candle.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

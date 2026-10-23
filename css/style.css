@@ -1,0 +1,1080 @@
+/* ==========================================================================
+   EL SALMO PROHIBIDO DE LA PROSPERIDAD - DESIGN SYSTEM: SACRED VATICAN GOLD
+   ========================================================================== */
+
+:root {
+  --bg-sanctuary: #0B0F19;
+  --bg-card: #131B2E;
+  --bg-card-hover: #1A243D;
+  --bg-card-inner: #0F1626;
+  --gold-primary: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-dark: #8C6D1F;
+  --gold-gradient: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.35);
+  --blue-michael: #38BDF8;
+  --blue-michael-glow: 0 0 15px rgba(56, 189, 248, 0.4);
+  --red-interference: #EF4444;
+  --green-restored: #10B981;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-gold: #F3E5AB;
+  --border-sacred: 1px solid rgba(212, 175, 55, 0.22);
+  --border-gold-glow: 1px solid rgba(212, 175, 55, 0.6);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Escala de Fuente Accesible */
+  --font-scale: 1;
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Clases de Accesibilidad (A- / A+) */
+body.font-large { --font-scale: 1.15; }
+body.font-xlarge { --font-scale: 1.30; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #060911;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: calc(16px * var(--font-scale));
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Contenedor Principal Estilo Mobile-App Centralizado */
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--bg-sanctuary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.1);
+  padding-bottom: 95px; /* Espacio para barra inferior */
+}
+
+/* ==========================================================================
+   HEADER DEL SANTUARIO
+   ========================================================================== */
+.sanctuary-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 15, 25, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: var(--border-sacred);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--gold-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--gold-glow);
+  font-size: 20px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: calc(0.95rem * var(--font-scale));
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: calc(0.72rem * var(--font-scale));
+  color: var(--blue-michael);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon-header {
+  background: rgba(19, 27, 46, 0.8);
+  border: var(--border-sacred);
+  color: var(--gold-light);
+  border-radius: var(--radius-full);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-icon-header:hover {
+  border-color: var(--gold-primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.btn-pastoral-pill {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(56, 189, 248, 0.15));
+  border: var(--border-sacred);
+  color: var(--gold-light);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: calc(0.75rem * var(--font-scale));
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-pastoral-pill:hover {
+  border-color: var(--gold-primary);
+  box-shadow: var(--gold-glow);
+}
+
+/* ==========================================================================
+   CONTENIDO Y VISTAS DE PESTAÑAS (TABS)
+   ========================================================================== */
+.tab-content {
+  display: none;
+  padding: 18px;
+  animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   CARDS LITÚRGICOS & ELEMENTOS SACROS
+   ========================================================================== */
+.sacred-card {
+  background: var(--bg-card);
+  border: var(--border-sacred);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 18px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sacred-card.gold-border {
+  border-color: var(--gold-primary);
+  box-shadow: var(--gold-glow);
+}
+
+.card-header-liturgic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  padding-bottom: 8px;
+}
+
+.card-title-liturgic {
+  font-family: var(--font-serif);
+  color: var(--gold-light);
+  font-size: calc(1.05rem * var(--font-scale));
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-badge {
+  font-size: calc(0.7rem * var(--font-scale));
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-warning {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--red-interference);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--green-restored);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.badge-gold {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+/* ==========================================================================
+   BOTONES SACROS DE ALTA CONVERSIÓN
+   ========================================================================== */
+.btn-sacred-primary {
+  width: 100%;
+  background: var(--gold-gradient);
+  color: #1A1302;
+  font-family: var(--font-serif);
+  font-size: calc(1rem * var(--font-scale));
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-sacred-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.55);
+}
+
+.btn-sacred-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-sacred-secondary {
+  width: 100%;
+  background: rgba(19, 27, 46, 0.9);
+  color: var(--gold-light);
+  border: var(--border-sacred);
+  font-family: var(--font-sans);
+  font-size: calc(0.95rem * var(--font-scale));
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-sacred-secondary:hover {
+  border-color: var(--gold-primary);
+  background: var(--bg-card-hover);
+}
+
+/* ==========================================================================
+   ESCÁNER DE INTERFERENCIA
+   ========================================================================== */
+.scanner-viewport {
+  width: 100%;
+  height: 140px;
+  background: #0B0F19;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  margin-bottom: 14px;
+}
+
+.scanner-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scanner-status-box {
+  background: var(--bg-card-inner);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-label {
+  font-size: calc(0.8rem * var(--font-scale));
+  color: var(--text-muted);
+}
+
+.status-val {
+  font-family: var(--font-serif);
+  font-size: calc(0.95rem * var(--font-scale));
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   REPRODUCTOR DEL SALMO Y MANUSCRITO
+   ========================================================================== */
+.player-visualizer-box {
+  width: 100%;
+  height: 150px;
+  background: #080C14;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: var(--border-sacred);
+  margin-bottom: 16px;
+}
+
+.player-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.frequency-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.freq-btn {
+  background: var(--bg-card-inner);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  padding: 10px 6px;
+  color: var(--text-muted);
+  font-size: calc(0.75rem * var(--font-scale));
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.freq-btn.active {
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-light);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.freq-btn .freq-hz {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: calc(0.85rem * var(--font-scale));
+  color: var(--gold-primary);
+}
+
+.player-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-play-sacred {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--gold-gradient);
+  border: none;
+  color: #1A1302;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--gold-glow);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-play-sacred:hover {
+  transform: scale(1.06);
+}
+
+.player-timer-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timer-select {
+  background: var(--bg-card-inner);
+  border: var(--border-sacred);
+  color: var(--gold-light);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: calc(0.85rem * var(--font-scale));
+  outline: none;
+  cursor: pointer;
+}
+
+.timer-countdown {
+  font-family: var(--font-serif);
+  font-size: calc(1.1rem * var(--font-scale));
+  color: var(--gold-light);
+  font-weight: 700;
+  min-width: 55px;
+}
+
+/* Letra Sincronizada del Salmo */
+.verses-container {
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 14px;
+}
+
+.verse-card {
+  background: var(--bg-card-inner);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 3px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.verse-card.current {
+  border-left-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.verse-latin {
+  font-family: var(--font-serif);
+  font-size: calc(0.85rem * var(--font-scale));
+  color: var(--gold-primary);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.verse-espanol {
+  font-size: calc(0.95rem * var(--font-scale));
+  color: var(--text-main);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.verse-guia {
+  font-size: calc(0.78rem * var(--font-scale));
+  color: var(--blue-michael);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   MANUSCRITO HISTÓRICO DE 1930 (PERGAMINO SAGRADO)
+   ========================================================================== */
+.parchment-box {
+  background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+  border: 2px solid var(--gold-primary);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 16px;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.parchment-seal {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 12px auto;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, #D4AF37 0%, #785816 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.parchment-title {
+  font-family: var(--font-serif);
+  color: var(--gold-light);
+  text-align: center;
+  font-size: calc(1.15rem * var(--font-scale));
+  margin-bottom: 4px;
+}
+
+.parchment-subtitle {
+  text-align: center;
+  color: var(--gold-dark);
+  font-size: calc(0.75rem * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.parchment-body {
+  font-size: calc(0.9rem * var(--font-scale));
+  color: #E7E5E4;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* ==========================================================================
+   BÓVEDA DE TESOROS SAGRADOS (3 BÔNUS DA VSL)
+   ========================================================================== */
+.bonus-tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.bonus-nav-item {
+  background: var(--bg-card);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+  color: var(--text-muted);
+  font-size: calc(0.75rem * var(--font-scale));
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bonus-nav-item.active {
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-light);
+}
+
+.bonus-container-pane {
+  display: none;
+}
+
+.bonus-container-pane.active {
+  display: block;
+}
+
+/* Oráculo de San Miguel */
+.oracle-card-box {
+  background: linear-gradient(135deg, #131B2E 0%, #0F1626 100%);
+  border: 1px solid var(--gold-primary);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--gold-glow);
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.oracle-icon-large {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: floatSacred 3s ease-in-out infinite;
+}
+
+@keyframes floatSacred {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.oracle-card-title {
+  font-family: var(--font-serif);
+  color: var(--gold-light);
+  font-size: calc(1.2rem * var(--font-scale));
+  margin-bottom: 6px;
+}
+
+.oracle-significance {
+  color: var(--blue-michael);
+  font-weight: 600;
+  font-size: calc(0.85rem * var(--font-scale));
+  margin-bottom: 14px;
+}
+
+.oracle-message {
+  font-size: calc(0.95rem * var(--font-scale));
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.oracle-action-box {
+  background: rgba(212, 175, 55, 0.1);
+  border-left: 3px solid var(--gold-primary);
+  padding: 10px 12px;
+  text-align: left;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: calc(0.85rem * var(--font-scale));
+}
+
+.oracle-verse-quote {
+  font-family: var(--font-serif);
+  font-size: calc(0.8rem * var(--font-scale));
+  color: var(--gold-dark);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Checklist Manto de San José */
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-card-inner);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.checklist-item.checked {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.checklist-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--gold-light);
+  font-size: 14px;
+}
+
+.checklist-item.checked .checklist-checkbox {
+  background: var(--green-restored);
+  border-color: var(--green-restored);
+  color: white;
+}
+
+/* Modo Nocturno Interactivo */
+.night-ritual-box {
+  background: #060911;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.sacred-word-card {
+  background: rgba(19, 27, 46, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.word-latin {
+  font-family: var(--font-serif);
+  font-size: calc(1.2rem * var(--font-scale));
+  color: var(--gold-light);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.word-meaning {
+  color: var(--blue-michael);
+  font-size: calc(0.8rem * var(--font-scale));
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   ALTAR DE SAN MIGUEL Y VELA VOTIVA
+   ========================================================================== */
+.candle-viewport {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.candle-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.candle-timer-status {
+  background: rgba(19, 27, 46, 0.85);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.peticiones-list {
+  margin-top: 16px;
+}
+
+.peticion-card {
+  background: var(--bg-card-inner);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.peticion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.peticion-categoria {
+  font-size: calc(0.72rem * var(--font-scale));
+  color: var(--blue-michael);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.peticion-fecha {
+  font-size: calc(0.72rem * var(--font-scale));
+  color: var(--text-muted);
+}
+
+.peticion-texto {
+  font-size: calc(0.9rem * var(--font-scale));
+  color: var(--text-main);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.btn-gracia-alcanzada {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--green-restored);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: calc(0.75rem * var(--font-scale));
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-gracia-alcanzada:hover {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+.peticion-card.gracia-recibida {
+  border-color: var(--green-restored);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* ==========================================================================
+   MI JORNADA: CONSAGRACIÓN DE 60 DÍAS & FAQ ANTI-REEMBOLSO
+   ========================================================================== */
+.streak-header-banner {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(56, 189, 248, 0.15) 100%);
+  border: var(--border-sacred);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.streak-counter {
+  font-family: var(--font-serif);
+  font-size: calc(1.8rem * var(--font-scale));
+  color: var(--gold-light);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: var(--bg-card-inner);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gold-gradient);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.medals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.medal-badge-box {
+  background: var(--bg-card-inner);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+  text-align: center;
+  transition: all 0.2s;
+  opacity: 0.45;
+}
+
+.medal-badge-box.unlocked {
+  opacity: 1;
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+.medal-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.medal-name {
+  font-size: calc(0.65rem * var(--font-scale));
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+/* FAQ Acordeón */
+.faq-item {
+  background: var(--bg-card-inner);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 14px;
+  font-weight: 600;
+  font-size: calc(0.9rem * var(--font-scale));
+  color: var(--gold-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 14px 14px 14px;
+  font-size: calc(0.85rem * var(--font-scale));
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAV)
+   ========================================================================== */
+.bottom-nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  height: 75px;
+  background: rgba(11, 15, 25, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: var(--border-sacred);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 60;
+  padding: 0 8px;
+}
+
+.nav-tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px 6px;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.nav-tab-btn.active {
+  color: var(--gold-primary);
+}
+
+.nav-tab-btn .nav-icon {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.nav-tab-btn.active .nav-icon {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
+}
+
+.nav-tab-btn .nav-label {
+  font-size: calc(0.68rem * var(--font-scale));
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   MODALES (ONBOARDING, HERMANA CLARA, PETICIÓN, DETALLES)
+   ========================================================================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-primary);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: var(--gold-glow);
+  position: relative;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.input-sacred {
+  width: 100%;
+  background: var(--bg-card-inner);
+  border: var(--border-sacred);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: calc(0.95rem * var(--font-scale));
+  margin-bottom: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.input-sacred:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.textarea-sacred {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* ==========================================================================
+   SCROLLBAR Y DETALLES COSMÉTICOS
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
